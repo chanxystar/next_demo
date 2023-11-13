@@ -1,10 +1,15 @@
 // app/page.tsx
-import {Button} from '@nextui-org/button'; 
+import { User, Link } from "@nextui-org/react";
+import { getCurrentUser } from "@/lib/session";
 
-export default function Page() {
-  return (
-    <div>
-      <Button color='primary'>Click me</Button>
-    </div>
-  )
+export default function Home() {
+  const getUserInfo = () => {
+    getCurrentUser().then((res) => {
+      console.log('res',res);
+    });
+  };
+
+
+  getUserInfo();
+  return <div className="m-auto"></div>;
 }
